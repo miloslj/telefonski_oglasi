@@ -1,0 +1,91 @@
+/*	 Imports   */
+@import 'reset';
+@import 'fonts';
+/*   Vars   */
+	/*   Color   */
+	$bg: #eee; //Background
+	$fg: #73f; //Foreground
+	/*   Images  */
+	$loop: "icons/loop.png";
+	$avatar: "icons/avatar.png";
+
+body { background: $bg; }
+/*==================================
+              Mixins
+==================================*/
+@mixin box-shadow($properties) {
+	-webkit-box-shadow: $properties;
+	   -moz-box-shadow: $properties;
+	    -ms-box-shadow: $properties;;
+	        box-shadow: $properties;
+}
+@mixin transition($effect, $time) {
+  -webkit-transition: ease-in-out $effect $time;
+     -moz-transition: ease-in-out $effect $time;
+      -ms-transition: ease-in-out $effect $time;
+          transition: ease-in-out $effect $time;
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+/*===========================
+			Header
+===========================*/
+header#main {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 60px;
+	background: $fg;
+	img#logo {
+		float: left;
+		height: 60px;
+		width: 222px;
+		background: #fff;
+	}
+	form#search {
+		max-width: 30%;
+		height: 40px;
+		position: relative;
+		top: 10px;
+		margin: 0 auto;
+		input[type="text"] {
+			width: 20em;
+			border: 0;
+			padding: 10px .7em;
+			font-size: 17px;
+			float: left;
+		}
+		input[type="submit"] {
+			border: 0;
+			width: 3.1em;
+			height: 3.1em;
+			margin: 0;
+			float: left;
+			background: #fff url($loop);
+			background-size: 2.5em;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+	}
+	section#users {
+		position: absolute;
+		right: 0;
+		top: 5px;
+		height: 3.1em;
+		width: 3.1em;
+		div.avatar {
+			height: 3.1em;
+			width: 3.1em;
+			background: #fff url($avatar);
+			background-size: 2.5em;
+			background-repeat: no-repeat;
+			background-position: center;
+			@include border-radius(100%);
+		}
+	}
+}
